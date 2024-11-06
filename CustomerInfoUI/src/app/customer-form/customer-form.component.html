@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Enter Customer Details: </h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name: </label>
+      <input id="name" type="text" class="form-control" formControlName="name" />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div formGroupName="address">
+      <h3>Address</h3>
+      <div class="mb-3">
+        <label for="street" class="form-label">Street: </label>
+        <input id="street" type="text" class="form-control" formControlName="street" />
+      </div>
+      <div class="mb-3">
+        <label for="apartment" class="form-label">Apartment or House Number: </label>
+        <input id="apartment" type="text" class="form-control" formControlName="apartment" />
+      </div>
+      <div class="mb-3">
+        <label for="city">City: </label>
+        <input id="city" type="text" class="form-control" formControlName="city" />
+      </div>
+      <div class="mb-3">
+        <label for="state">State: </label>
+        <input id="state" type="text" class="form-control" formControlName="state" />
+      </div>
+      <div class="mb-3">
+        <label for="zipcode">ZipCode: </label>
+        <input id="zipcode" type="text" class="form-control" formControlName="zipcode" />
+      </div>
+      <div class="mb-3">
+        <label for="country">Country: </label>
+        <input id="country" type="text" class="form-control" formControlName="country" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary"
+            [disabled]="!profileForm.valid">
+      Submit
+    </button>
+  </form>
+
+</div>
